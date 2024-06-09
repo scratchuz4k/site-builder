@@ -1,7 +1,6 @@
 {
-  "name": "site-builder",
-  "version": "0.0.1",
-  "private": true,
+  "name": "@scratchuz4k/site-builder",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -21,5 +20,16 @@
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
     "vite": "^5.2.8"
-  }
+  },
+  "main": "./dist/lib.js",
+  "style": "./dist/style.css", 
+  "keywords": [
+    "site-build",
+    "package"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "author": "scratchuz4k"
 }

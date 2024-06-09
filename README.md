@@ -7,7 +7,7 @@ With this you can build an website with just a json object
 Add to vue:
 
 ```js
-import { components } from "@scratchuz4k/storybook";
+import { components } from "@scratchuz4k/site-builder";
 
 app.use(components).mount("#app");
 ```
