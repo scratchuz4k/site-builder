@@ -3,7 +3,7 @@ import './assets/style.scss'
 import { createApp } from 'vue'
 import App from './App.vue'
 
-const components = {
+export const components = {
     install: (app) => {
         const components = import.meta.glob("./components/**/*.vue", {
             eager: true,

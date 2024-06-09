@@ -1,29 +1,70 @@
-# site-builder
+# Site Builder
 
-This template should help get you started developing with Vue 3 in Vite.
+With this you can build an website with just a json object
 
-## Recommended IDE Setup
+## Recommended Installation
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Add to vue:
 
-## Customize configuration
+```js
+import { components } from "@scratchuz4k/storybook";
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+app.use(components).mount("#app");
 ```
 
-### Compile and Hot-Reload for Development
+## Example
 
-```sh
-npm run dev
-```
+```js
+<script setup>
+const items = [
+  {
+    component: 'content',
+    class: ['mt-10'],
+    children: [
+      {
+        component: 'form',
+        class: ['mt-10'],
+        children: [
+          {
+            component: 'row',
+            children: [
+              {
+                component: 'column',
+                children: [{  configs: { title: 'Nome Completo' },  component: 'input-text',}
+                ]
+              },
 
-### Compile and Minify for Production
+            ],
+          },
+          {
+            component: 'row',
+            children: [
+              {
+                component: 'column',
+                children: [{  configs: { title: 'Username' },  component: 'input-text',}
+                ]
+              },
+              {
+                component: 'column',
+                children: [ { configs: { title: 'Password' }, component: 'input-text',}
+                ]
+              }
 
-```sh
-npm run build
+            ],
+          },
+          {
+            component: 'form-buttons',
+          }
+        ]
+      }
+    ]
+  }
+
+]
+</script>
+
+<template>
+  <builder :object="{}" :design="items"></builder>
+</template>
+
 ```
