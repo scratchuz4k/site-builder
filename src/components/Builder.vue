@@ -12,7 +12,6 @@ const { endpoint, object, design } = defineProps({
         default: false
     }
 })
-
 </script>
 
 <template>

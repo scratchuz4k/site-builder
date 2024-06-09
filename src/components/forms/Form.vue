@@ -37,7 +37,7 @@ const submit = async () => {
 </script>
 
 <template>
-    <form id="website-form" class="container mx-auto mt-5" :class="props.class" @submit.prevent="submit">
+    <form id="website-form" :class="props.class" @submit.prevent="submit">
         <slot></slot>
 
         <form-buttons v-if="props.endpoint"></form-buttons>
