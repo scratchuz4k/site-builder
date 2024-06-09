@@ -4,13 +4,32 @@ With this you can build an website with just a json object
 
 ## Recommended Installation
 
+Add library:
+
+```sh
+npm install @scratchuz4k/site-builder
+```
+
 Add to vue:
 
 ```js
 import { components } from "@scratchuz4k/site-builder";
+import "@scratchuz4k/site-builder/dist/style.css";
 
 app.use(components).mount("#app");
 ```
+
+## List of current Components
+
+- Forms
+  - Form
+  - FormButton
+  - InputText
+- Layout
+  - Column
+  - Row
+  - Content
+
 
 ## Example
 
@@ -66,5 +85,4 @@ const items = [
 <template>
   <builder :object="{}" :design="items"></builder>
 </template>
-
 ```
