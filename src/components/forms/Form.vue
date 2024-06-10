@@ -1,8 +1,8 @@
 <script setup>
 const props = defineProps({
-    object: {
+    modelValue: {
         required: false,
-        default: null
+        default: {}
     },
     endpoint: {
         required: false,
@@ -22,7 +22,7 @@ const submit = async () => {
     try {
         let res
         const headers = { headers: { 'Content-Type': 'multipart/form-data' } }
-        if (Object.keys(object).length) {
+        if (Object.keys(modelValue).length) {
             formData.append("_method", "put")
             res = await axios.post(props.endpoint, formData, headers)
         } else {

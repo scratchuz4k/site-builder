@@ -1,6 +1,6 @@
 <script setup>
-const { endpoint, object, design } = defineProps({
-    object: {
+const { endpoint, modelValue, design } = defineProps({
+    modelValue: {
         required: false,
         default: null
     },
@@ -18,13 +18,13 @@ const { endpoint, object, design } = defineProps({
     <template v-for="(item, key) in design" :key="item">
         <component :is="item.component" v-bind="{
             endpoint: endpoint,
-            object: object,
+            modelValue: modelValue,
             class: item.class,
-            configs: item.configs
+            ...item.configs
         }">
             <builder v-if="item.children && item.children.length" v-bind="{
                 endpoint: endpoint,
-                object: object,
+                modelValue: modelValue,
                 design: item.children
             }" />
         </component>

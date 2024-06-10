@@ -49,7 +49,7 @@ const items = [
             children: [
               {
                 component: 'column',
-                children: [{  configs: { title: 'Nome Completo' },  component: 'input-text',}
+                children: [{  configs: { label: 'Nome Completo' },  component: 'input',}
                 ]
               },
 
@@ -60,12 +60,12 @@ const items = [
             children: [
               {
                 component: 'column',
-                children: [{  configs: { title: 'Username' },  component: 'input-text',}
+                children: [{  configs: { label: 'Username' },  component: 'input',}
                 ]
               },
               {
                 component: 'column',
-                children: [ { configs: { title: 'Password' }, component: 'input-text',}
+                children: [ { configs: { label: 'Password' }, component: 'input',}
                 ]
               }
 

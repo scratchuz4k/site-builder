@@ -15,8 +15,8 @@ const items = [
                 component: 'column',
                 children: [
                   {
-                    configs: { title: 'Nome Completo' },
-                    component: 'input-text',
+                    configs: { label: 'Nome Completo', name: 'name' },
+                    component: 'input',
                   }
                 ]
               },
@@ -30,8 +30,8 @@ const items = [
                 component: 'column',
                 children: [
                   {
-                    configs: { title: 'Username' },
-                    component: 'input-text',
+                    configs: { label: 'Username', name: 'username' },
+                    component: 'input',
                   }
                 ]
               },
@@ -39,8 +39,8 @@ const items = [
                 component: 'column',
                 children: [
                   {
-                    configs: { title: 'Password' },
-                    component: 'input-text',
+                    configs: { label: 'Password', name: 'password' },
+                    component: 'input',
                   }
                 ]
               }
