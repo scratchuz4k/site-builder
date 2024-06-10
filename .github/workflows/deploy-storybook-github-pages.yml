@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - id: build-publish
-      uses: bitovi/github-actions-storybook-to-github-pages@upgrade-child-actions
+      uses: bitovi/github-actions-storybook-to-github-pages
       with:
           path: storybook-static
           # want a separate workflow, required prod build to generate type definition
