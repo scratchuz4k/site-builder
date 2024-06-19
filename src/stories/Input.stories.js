@@ -3,27 +3,31 @@ import Input from '../components/forms/Input.vue';
 
 export default {
   title: 'Components/Input',
-  component: Input,  
+  tags: ["autodocs"],
+  component: Input,
 };
 
 export const text = {
   args: {
     label: "Text:",
-    type: "text"    
+    type: "text",
+    name: "text"
   }
 };
 
 export const password = {
   args: {
     label: "Password:",
-    type: "password"    
+    type: "password",
+    name: "password"
   }
 };
 
 export const date = {
   args: {
     label: "Date:",
-    type: "date"
+    type: "date",
+    name: "date"
   }
 };
 

@@ -1,13 +1,21 @@
 <script setup>
+import { ref } from 'vue'
 const items = [
   {
-    component: 'content',
-    class: ['mt-10'],
+    component: 'template',
     children: [
       {
+        component: 'breadcrumbs',
+        children: []
+      },
+      {
         component: 'form',
-        class: ['mt-10'],
         children: [
+          {
+            component: 'title',
+            class: ["mt-10"],
+            children: []
+          },
           {
             component: 'row',
             children: [
@@ -54,10 +62,11 @@ const items = [
       }
     ]
   }
-
 ]
+
+const value = ref({ "name": "adaaaw", "username": "adw", "password": "wdd" })
 </script>
 
 <template>
-  <builder :object="{}" :design="items"></builder>
+  <builder v-model="value" :design="items"></builder>
 </template>

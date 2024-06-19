@@ -2,7 +2,7 @@
 const { endpoint, modelValue, design } = defineProps({
     modelValue: {
         required: false,
-        default: null
+        default: {}
     },
     design: {
         required: true,
