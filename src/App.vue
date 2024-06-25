@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-const items = [
+const items = ref([
   {
     component: 'template',
     children: [
@@ -35,7 +35,7 @@ const items = [
             component: 'row',
             children: [
               {
-                component: 'column',
+                component: 'column2',
                 children: [
                   {
                     configs: { label: 'Username', name: 'username' },
@@ -44,7 +44,7 @@ const items = [
                 ]
               },
               {
-                component: 'column',
+                component: 'column1',
                 children: [
                   {
                     configs: { label: 'Password', name: 'password' },
@@ -62,11 +62,16 @@ const items = [
       }
     ]
   }
-]
+])
 
 const value = ref({ "name": "adaaaw", "username": "adw", "password": "wdd" })
 </script>
 
 <template>
-  <builder v-model="value" :design="items"></builder>
+  <!-- <builder v-model="value" :design="items"></builder> -->
+  <tree v-model="items">
+    <template v-slot="{ element }">{{ element.component }}</template>
+  </tree>
+
+  {{ items }}
 </template>
