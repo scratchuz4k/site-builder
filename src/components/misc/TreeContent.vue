@@ -34,6 +34,7 @@
 </template>
 <script setup>
 import { ref, reactive } from "vue";
+
 import useTree from "../../composables/useTree";
 const { dragged } = useTree();
 
@@ -112,39 +113,4 @@ const drop = (event, item, index) => {
     dragged.index = null;
 };
 
-
 </script>
-
-<style scoped>
-.hide {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.selected {
-    background-color: azure;
-}
-
-.hovered {
-    background: antiquewhite;
-}
-
-.tree-content {
-    cursor: pointer;
-    display: flex;
-    align-items: center
-}
-
-.tree-item {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    width: 100%
-}
-
-.tree-placeholder {
-    border: dotted 1px #bcbec0;
-    background: antiquewhite;
-    height: 20px
-}
-</style>

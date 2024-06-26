@@ -1,6 +1,6 @@
-import './assets/style.scss'
-
-export const components = {
+import './assets/styles/main.scss'
+import Tree from './components/misc/Tree.vue';
+const Components = {
     install: (app) => {
         const components = import.meta.glob("./components/**/*.vue", {
             eager: true,
@@ -14,3 +14,6 @@ export const components = {
         });
     },
 };
+
+export { Tree, Components }
+

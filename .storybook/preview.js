@@ -1,20 +1,6 @@
 /** @type { import('@storybook/vue3').Preview } */
-import '@/assets/style.scss'
+import '../src/assets/styles/main.scss'
 
-const preview = {
-  parameters: {
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/i,
-      },
-    },
-  },
-};
-
-export default preview;
-
-import '../src/assets/style.scss'
 import { setup } from '@storybook/vue3';
 
 const components = {

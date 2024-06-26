@@ -1,13 +1,21 @@
 
 import Tree from '../components/misc/Tree.vue';
 import TreeContent from '../components/misc/TreeContent.vue';
-
 import { ref } from 'vue';
 
 export default {
     title: 'Components/Tree',
+    description: "Hello World",
     tags: ["autodocs"],
     component: Tree,
+    parameters: {
+        docs: {
+            subtitle: "The fastest way to display information in a tree structure.",
+            description: {
+                story: `To start the presentation, insert an array of items. Each item in the array may include a <i><strong>children</strong></i> property, which represents sub-items.`,
+        }
+        }
+    },
 };
 
 
