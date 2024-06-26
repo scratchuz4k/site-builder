@@ -2,8 +2,8 @@
     <ul class="trees">
         <template v-for="(item, index) in props.modelValue">
             <TreeContent v-model="props.modelValue[index]" :parent="props.modelValue" :index="index">
-                <template v-slot="{ element }">
-                    <slot :element="element"></slot>
+                <template v-slot="{ element, parent, stats }">
+                    <slot :element="element" :parent="props.parent" :stats="stats"></slot>
                 </template>
             </TreeContent>
         </template>
