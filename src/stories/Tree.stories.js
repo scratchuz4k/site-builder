@@ -20,7 +20,7 @@ export const Main = {
                     component: 'form', children: [{ component: 'title', class: ["mt-10"], children: [] }, {
                         component: 'row', children: [{ component: 'column', children: [{ configs: { label: 'Nome Completo', name: 'name' }, component: 'input', }] },
                         ],
-                    }, { component: 'form-buttons', }]
+                    }, { is_selected: true, component: 'form-buttons', }]
                 }]
             }, {
                 component: 'row', children: [{ component: 'column2', children: [{ configs: { label: 'Username', name: 'username' }, component: 'input', }] }, { component: 'column1', children: [{ configs: { label: 'Password', name: 'password' }, component: 'input', }] }
@@ -42,11 +42,13 @@ export const Main = {
         <Tree v-model="items">
             <template v-slot="{ element, parent, stats }">
                 <div style="display: flex;justify-content: space-between;width:100%">
-                    <p>{{ element.component }}</p>
-                    <button v-if="element.children && element.children.length" type="button"
-                    @click="orderTree(element.children, stats)">
-                    <font-awesome-icon v-if="stats.sortOrder == 'asc'" icon="fas fa-sort-amount-up"></font-awesome-icon>
-                    <font-awesome-icon v-else icon="fas fa-sort-amount-down"></font-awesome-icon>
+                    <div style="display: flex;align-items: center;">
+                        <input type="checkbox" :checked="element.is_selected" style="width: 14px; height: 14px" />
+                        <p>{{ element.component }}</p>
+                    </div>
+                    <button v-if="element.children && element.children.length" type="button" @click="orderTree(element.children, stats)">
+                        <font-awesome-icon v-if="stats.sortOrder == 'asc'" icon="fas fa-sort-amount-up"></font-awesome-icon>
+                        <font-awesome-icon v-else icon="fas fa-sort-amount-down"></font-awesome-icon>
                     </button>
                 </div>
             </template>

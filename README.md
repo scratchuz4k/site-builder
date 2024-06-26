@@ -1,6 +1,8 @@
 # Site Builder
 
-With this you can build an website with just a json object
+With this you can build an website with just a json object, i also include some components.
+
+[Demo](https://scratchuz4k.github.io/site-builder/)
 
 ## Recommended Installation
 
@@ -29,6 +31,8 @@ app.use(components).mount("#app");
   - Column
   - Row
   - Content
+- Misc
+  - Tree
 
 
 ## Example

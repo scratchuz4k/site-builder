@@ -56,6 +56,7 @@ const items = ref([
             ],
           },
           {
+            is_selected: true,
             component: 'form-buttons',
           }
         ]
@@ -89,7 +90,10 @@ const value = ref({ "name": "adaaaw", "username": "adw", "password": "wdd" })
   <tree v-model="items">
     <template v-slot="{ element, parent, stats }">
       <div style="display: flex;justify-content: space-between;width:100%">
-        <p>{{ element.component }}</p>
+        <div style="display: flex;align-items: center;">
+          <input type="checkbox" :checked="element.is_selected" style="width: 14px; height: 14px" />
+          <p>{{ element.component }}</p>
+        </div>
         <button v-if="element.children && element.children.length" type="button"
           @click="orderTree(element.children, stats)">
           <font-awesome-icon v-if="stats.sortOrder == 'asc'" icon="fas fa-sort-amount-up"></font-awesome-icon>

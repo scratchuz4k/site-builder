@@ -1,11 +1,11 @@
 <template>
     <li :class="[
         dragged.item === props.modelValue ? 'selected' : '',
-        props.modelValue.children && props.modelValue.children.length ? 'has-child' : '',
+        props.modelValue.children && props.modelValue.children.length ? 'has-child' : ''
     ]">
-        <div @dragstart="dragStart($event)" style="cursor: pointer; display: flex; align-items: center">
+        <div :class="['tree-content', showParentPlaceHolder ? 'hovered' : '']" @dragstart="dragStart($event)">
             <div draggable="true" @dragover="dragOverParent($event)" @drop="drop($event, props.parent, props.index)"
-                style="width: 5px" @dragleave="dragEndParent()">
+                style="width: 8px" @dragleave="dragEndParent()">
                 <button style="margin-left: -8px" :class="{
                     hide: !(props.modelValue.children && props.modelValue.children.length),
                 }" @click="() => (show = !show)">
@@ -13,15 +13,14 @@
                     <font-awesome-icon v-else :icon="['fas', 'square-plus']" />
                 </button>
             </div>
-            <div style="cursor: pointer; display: flex; align-items: center; width: 100%" draggable="true"
-                @dragleave="dragEnd()" @dragover="dragOver($event)" @drop="drop($event, props.modelValue, 0)">
-                <input type="checkbox" checked style="width: 14px; height: 14px" />
+            <div class="tree-item" draggable="true" @dragleave="dragEnd()" @dragover="dragOver($event)"
+                @drop="drop($event, props.modelValue, 0)">
                 <slot :element="props.modelValue" :parent="props.parent" :stats="stats"></slot>
             </div>
         </div>
         <ul v-if="showPlaceHolder">
             <li>
-                <div style="border: dotted 1px #bcbec0; background: antiquewhite; height: 20px"></div>
+                <div class="tree-placeholder"></div>
             </li>
         </ul>
         <ul v-if="show" v-for="(child, childIndex) in props.modelValue.children">
@@ -31,9 +30,6 @@
                 </template>
             </TreeContent>
         </ul>
-    </li>
-    <li v-if="showParentPlaceHolder">
-        <div style="border: dotted 1px #bcbec0; background: antiquewhite; height: 20px"></div>
     </li>
 </template>
 <script setup>
@@ -52,7 +48,7 @@ const showPlaceHolder = ref(false);
 const show = ref(true);
 const stats = reactive({
     sortkey: props.index,
-    sortOrder: "asc",
+    sortOrder: "asc"
 });
 
 const dragStart = (event) => {
@@ -127,5 +123,28 @@ const drop = (event, item, index) => {
 
 .selected {
     background-color: azure;
+}
+
+.hovered {
+    background: antiquewhite;
+}
+
+.tree-content {
+    cursor: pointer;
+    display: flex;
+    align-items: center
+}
+
+.tree-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 100%
+}
+
+.tree-placeholder {
+    border: dotted 1px #bcbec0;
+    background: antiquewhite;
+    height: 20px
 }
 </style>
